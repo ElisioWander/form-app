@@ -45,9 +45,7 @@ export function Home() {
                 {...register("name")}
                 
               />
-              { errors.name && (
-                <p>{errors.name?.message}</p>
-              ) }
+              { errors.name && <p>{errors.name?.message}</p> }
             </div>
             <div>
               <label htmlFor="email">E-mail</label>
@@ -55,6 +53,7 @@ export function Home() {
                 type="email"
                 {...register("email")}
               />
+              { errors.email && <p>{errors.email?.message}</p> }
             </div>
             <div>
               <label htmlFor="password">Senha</label>
@@ -62,6 +61,7 @@ export function Home() {
                 type="password"
                 {...register("password")}
               />
+              { errors.password && <p>{errors.password?.message}</p> }
             </div>
             <div>
               <label htmlFor="password_confirmation">Confirme a senha</label>
@@ -69,6 +69,7 @@ export function Home() {
                 type="password"
                 {...register("password_confirmation")}
               />
+              { errors.password_confirmation && <p>{errors.password_confirmation?.message}</p> }
             </div>
           </div>
           <div className="button">
