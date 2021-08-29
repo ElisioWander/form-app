@@ -1,5 +1,4 @@
 import { Button } from "../Button/index";
-import { Input } from "../Input/index"
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -14,10 +13,10 @@ interface CreateUserProps {
 }
 
 const CreateUserForm = yup.object().shape({
-  name: yup.string().required('Name is required'),
-  email: yup.string().required().email(),
-  password: yup.string().required(),
-  password_confirmation: yup.string().oneOf(['password', null], 'As senhas precisam ser iguais')
+  name: yup.string().required('Nome obrigatório'),
+  email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+  password: yup.string().required('Senha orbrigatória'),
+  password_confirmation: yup.string().oneOf([yup.ref('password'), null], 'As senhas precisam ser iguais')
 })
 
 export function Home() {
@@ -39,22 +38,38 @@ export function Home() {
 
         <form className="form" onSubmit={handleSubmit(handleCreateUser)}>
           <div className="input-group">
-            <Input
-              label="Nome"
-              {...register("Nome")}
-            />
-            <Input
-              {...register("E-mail")}
-              label="E-mail"
-            />
-            <Input
-              {...register("Password")}
-              label="Password"
-            />
-            <Input
-              {...register("Password_confirmation")}
-              label="Password confirmation"
-            />
+            <div>
+              <label htmlFor="name">Nome</label>
+              <input 
+                type="text"
+                {...register("name")}
+                
+              />
+              { errors.name && (
+                <p>{errors.name?.message}</p>
+              ) }
+            </div>
+            <div>
+              <label htmlFor="email">E-mail</label>
+              <input 
+                type="email"
+                {...register("email")}
+              />
+            </div>
+            <div>
+              <label htmlFor="password">Senha</label>
+              <input 
+                type="password"
+                {...register("password")}
+              />
+            </div>
+            <div>
+              <label htmlFor="password_confirmation">Confirme a senha</label>
+              <input 
+                type="password"
+                {...register("password_confirmation")}
+              />
+            </div>
           </div>
           <div className="button">
             <Button />
