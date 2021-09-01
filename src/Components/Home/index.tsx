@@ -16,7 +16,7 @@ interface CreateUserProps {
 const CreateUserForm = yup.object().shape({
   name: yup.string().required('Nome obrigatório'),
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
-  password: yup.string().required('Senha orbrigatória'),
+  password: yup.string().required('Senha orbrigatória').min(6, 'Minimo de 6 caracteres'),
   password_confirmation: yup.string().oneOf([yup.ref('password'), null], 'As senhas precisam ser iguais')
 })
 

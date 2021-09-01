@@ -4,6 +4,8 @@ import {
 } from "react";
 import { FieldError } from "react-hook-form";
 
+import './styles.scss'
+
 interface InputProps {
   type: string;
   label: string;
@@ -25,7 +27,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({
         type={type}
         ref={ref}
         {...rest}
-      />;
+      />
 
       { error && (
         <p>{error.message}</p>

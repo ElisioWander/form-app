@@ -1,0 +1,37 @@
+.input-group {
+  width: 100%;
+
+  margin-top: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+
+  label {
+    color: var(--gray-300);
+  }
+
+  input {
+    width: 100%;
+
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.33rem;
+    
+    border: none;
+    border-radius: 0.5rem;
+    
+    &::-webkit-input-placeholder {
+      font-size: 0.75rem;
+
+      color: var(--gray-300);
+    }
+  }
+
+  p {
+    margin: 0.5rem 0 0 0.5rem;
+
+    font-size: 0.8rem;
+    
+    color: var(--red);
+  }
+}
