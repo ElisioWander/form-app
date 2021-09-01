@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="./src/images/form-app.gif" width="800px">
+    <img src="./src/images/form-app.gif">
 </h1>
 
 ## 🏷️ Sobre 
