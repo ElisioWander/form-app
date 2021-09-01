@@ -1,6 +1,7 @@
-import { Button } from "../Button/index";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup'
+import { Button } from '../Button/index';
+import { Input } from  '../Input/index';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
 
 import "./styles.scss";
@@ -39,37 +40,40 @@ export function Home() {
         <form className="form" onSubmit={handleSubmit(handleCreateUser)}>
           <div className="input-group">
             <div>
-              <label htmlFor="name">Nome</label>
-              <input 
-                type="text"
+              <Input 
+                type="name"
+                label="name"
+                labelName="Nome"
+                error={errors.name}
                 {...register("name")}
-                
               />
-              { errors.name && <p>{errors.name?.message}</p> }
             </div>
             <div>
-              <label htmlFor="email">E-mail</label>
-              <input 
+              <Input 
                 type="email"
+                label="email"
+                labelName="E-mail"
+                error={errors.email}
                 {...register("email")}
               />
-              { errors.email && <p>{errors.email?.message}</p> }
             </div>
             <div>
-              <label htmlFor="password">Senha</label>
-              <input 
+              <Input 
                 type="password"
+                label="password"
+                labelName="Senha"
+                error={errors.password}
                 {...register("password")}
               />
-              { errors.password && <p>{errors.password?.message}</p> }
             </div>
             <div>
-              <label htmlFor="password_confirmation">Confirme a senha</label>
-              <input 
+              <Input 
                 type="password"
+                label="password_confirmation"
+                labelName="Confirme a senha"
+                error={errors.password_confirmation}
                 {...register("password_confirmation")}
               />
-              { errors.password_confirmation && <p>{errors.password_confirmation?.message}</p> }
             </div>
           </div>
           <div className="button">
